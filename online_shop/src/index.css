@@ -57,8 +57,14 @@ a {
 
 img {
     width: 100%;
-} 
+}
 
 section {
     padding: 60px 0;
-} 
+}
+
+.section_title {
+    color: var(--primary-color);
+    font-weight: 600;
+    text-align: center;
+}
