@@ -60,9 +60,38 @@
 
 .nav_icons span i 
 {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     color: var(--primary-color);
     cursor: pointer;
+}
+
+.fav_icon
+{
+    position: relative;
+}
+
+.cart_icon
+{
+    position: relative;
+}
+
+.badge
+{
+    position: absolute;
+    top: 20%;
+    right: -8%;
+    content: "";
+    background-color: var(--primary-color);
+    color: #fff;
+    border-radius: 50px;
+    font-size: .8rem;
+    font-weight: 600;
+    z-index: 10;
+    width: 15px;
+    height: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .nav_icons span img
@@ -77,4 +106,9 @@
     font-size: 1.3rem;
     color: var(--primary-color);
     display: none;
+}
+
+.nav_active
+{
+    font-weight: 700 !important;
 }
