@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import './header.css'
 import { Container, Row } from 'reactstrap'
 import { NavLink } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import logo from '../../assets/images/eco-logo.png'
 import userIcon from '../../assets/images/user-icon.png'
+import { useEffect } from 'react'
 
 const nav_link = [
   {
@@ -22,8 +23,32 @@ const nav_link = [
 ]
 
 const Header = () => {
+
+  const headerRef = useRef(null)
+
+  const menuRef = useRef(null)
+
+  const stickyHeaderFunc = () => {
+    window.addEventListener('scroll', () => {
+      if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+        headerRef.current.classList.add('sticky_header')
+      }
+      else {
+        headerRef.current.classList.remove('sticky_header')
+      }
+    })
+  }
+
+  useEffect(() => {
+    stickyHeaderFunc()
+
+    return () => window.removeEventListener('scroll', stickyHeaderFunc)
+  })
+
+  const menuToggle = () => menuRef.current.classList.toggle('active_menu')
+
   return (
-    <header className='header'>
+    <header className='header' ref={headerRef}>
       <Container>
         <Row>
           <div className="nav_wrapper">
@@ -34,7 +59,7 @@ const Header = () => {
               </div>
             </div>
 
-            <div className="navigation">
+            <div className="navigation" ref={menuRef} onClick={menuToggle}>
               <ul className="menu">
                 {/* <li className="nav_item">
                   <NavLink to='home'>Home</NavLink>
@@ -71,11 +96,15 @@ const Header = () => {
               <span>
                 <motion.img whileTap={{ scale: 1.3 }} src={userIcon} alt="userIcon" />
               </span>
+
+              <div className="mobile_menu">
+              <span onClick={menuToggle}><i class="ri-menu-line"></i></span>
+            </div>
             </div>
 
-            <div className="mobile_menu">
+            {/* <div className="mobile_menu">
               <span><i class="ri-menu-line"></i></span>
-            </div>
+            </div> */}
 
           </div>
         </Row>
