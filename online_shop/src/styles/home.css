@@ -76,14 +76,19 @@
     color: var(--primary-color);
 }
 
-@media only screen and (max-withd: 992px) {
+@media only screen and (max-width: 992px) {
     .hero_content h2
     {
         font-size: 2rem;
     }
+
+    .section_title
+    {
+        font-size: 1.7rem;
+    }
 }
 
-@media only screen and (max-withd: 768px) {
+@media only screen and (max-width: 768px) {
     .hero_content h2
     {
         font-size: 1.6rem;
@@ -98,9 +103,14 @@
     {
         font-size: 0.9rem;
     }
+
+    .section_title
+    {
+        font-size: 1.4rem;
+    }
 }
 
-@media only screen and (max-withd: 576px){
+@media only screen and (max-width: 576px){
     .hero_content
     {
         padding-top: 0;
