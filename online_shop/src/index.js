@@ -4,10 +4,14 @@ import App from './App'
 import 'remixicon/fonts/remixicon.css'
 import "bootstrap/dist/css/bootstrap.css";
 import { BrowserRouter } from 'react-router-dom'
+import { Provider } from 'react-redux';
+import store from './redux/Store';
 
 const root = ReactDOM.createRoot(document.querySelector('.root'))
 root.render(
     <BrowserRouter>
-        <App />
+        <Provider store={store}>
+            <App />
+        </Provider>
     </BrowserRouter>
 )
